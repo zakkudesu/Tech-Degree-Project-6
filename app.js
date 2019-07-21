@@ -9,8 +9,19 @@ startGame.addEventListener('click', (e) => {
     startScreen.style.visibility = 'hidden';
 });
 
-const phrases = [
-    'read between the lines',
-    'haste makes waste',
-    'someone woke up on the wrong side of the bed'
+//GAME PHRASES
+const gamePhrases = [
+    'READ BETWEEN THE LINES',
+    'HASTE MAKES WASTE',
+    'SOMEONE WOKE UP ON THE WRONG SIDE OF THE BED'
 ];
+
+function getRandomPhraseAsArray(arr){
+    //do stuff to any arr that is passed in
+    let pickPhrase = arr[Math.floor(Math.random()*arr.length)];
+    let splitPhrase = pickPhrase.split(' ');
+    console.log(splitPhrase);
+    return splitPhrase;
+ } 
+
+getRandomPhraseAsArray(gamePhrases);
