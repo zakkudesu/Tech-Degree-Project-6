@@ -9,3 +9,8 @@ startGame.addEventListener('click', (e) => {
     startScreen.style.visibility = 'hidden';
 });
 
+const phrases = [
+    'read between the lines',
+    'haste makes waste',
+    'someone woke up on the wrong side of the bed'
+];
