@@ -43,3 +43,5 @@ function addPhraseToDisplay(phrase){
 
 const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 addPhraseToDisplay(phraseAsLetters);
+
+//CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
