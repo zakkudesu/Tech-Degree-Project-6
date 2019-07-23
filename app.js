@@ -5,6 +5,7 @@ const missed = 0;
 const startGame = document.querySelector('.btn__reset');
 const startOverlay = document.getElementById('overlay'); 
 const ul = document.querySelector('#phrase ul');
+let misses = 0;
 
 //GAME PHRASE LIST
 const gamePhrases = [
@@ -64,12 +65,19 @@ startGame.addEventListener('click', (e) => {
 qwerty.addEventListener("click", (e) => {
     let key = e.target;
     let keyMatch = checkLetter(key);
+    let scoreBoard = document.querySelector('.scoreBoard');
+    let tries = document.getElementsByClassName('tries');
+
         if(key.tagName == 'BUTTON' ){
             key.className = 'chosen';
             key.disabled = true;
-        };
-        if(keyMatch == null){
-            console.log('whoops, guess again');
-        };  
+        } 
+        
+        if(keyMatch == null) {
+            //placeholder for misses to be replaced with removing hearts
+            misses ++;
+            console.log('whoops', misses);
+        }
+
     }
 );
