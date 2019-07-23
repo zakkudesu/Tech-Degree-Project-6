@@ -46,7 +46,7 @@ const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 addPhraseToDisplay(phraseAsLetters);
 
 //CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
-function checkLetter(letterButton){
-    const getLetter = querySelectorAll('.letter');
-
+function checkLetter(letterButtonClicked){
+    const getLetter = querySelectorAll('.letter'); 
+    
 }
