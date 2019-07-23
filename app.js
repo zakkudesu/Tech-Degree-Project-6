@@ -70,7 +70,7 @@ startGame.addEventListener('click', (e) => {
 });
 
 
-qwerty.addEventListener("click", function(e)){
+qwerty.addEventListener("click", function(e){
 
 
-}
+});
