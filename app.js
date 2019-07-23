@@ -24,7 +24,6 @@ function getRandomPhraseAsArray(arr){
     let splitPhrase = pickPhrase.split("");
     return splitPhrase;
  } 
-const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 
 //APPEND SPLIT RANDOM PHRASE TO SCREEN
 function addPhraseToDisplay(phrase){
@@ -42,4 +41,5 @@ function addPhraseToDisplay(phrase){
     }
 }
 
+const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 addPhraseToDisplay(phraseAsLetters);
