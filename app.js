@@ -3,12 +3,8 @@ const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const missed = 0;
 const startGame = document.querySelector('.btn__reset');
-const startScreen = document.getElementById('overlay'); 
-const gameDisplay = document.querySelector('#phrase ul');
-
-startGame.addEventListener('click', (e) => {  
-    startScreen.style.visibility = 'hidden';
-});
+const startOverlay = document.getElementById('overlay'); 
+const ul = document.querySelector('#phrase ul');
 
 //GAME PHRASE LIST
 const gamePhrases = [
@@ -32,7 +28,7 @@ function addPhraseToDisplay(phrase){
     for (let i = 0; i < phrase.length; i++){
         let li = document.createElement('li');
         li.textContent = phrase[i];
-        gameDisplay.appendChild(li);   
+        ul.appendChild(li);   
 
         if(li.textContent !== ' '){
             li.className = 'letter';
@@ -46,7 +42,35 @@ const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 addPhraseToDisplay(phraseAsLetters);
 
 //CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
-function checkLetter(letterButtonClicked){
-    const getLetter = querySelectorAll('.letter'); 
-    
+function checkLetter(btnGuess){
+    let guess = null
+    const getLetter = ul.children; 
+    const btnGuessLetter = btnGuess.textContent;
+    const btnGuessUpperCase = btnGuessLetter.toUpperCase();
+
+    for(let i = 0; i < getLetter.length; i++){
+        const letterAttr = (getLetter[i].getAttribute('class'));
+        const letter = getLetter[i].textContent;
+        
+
+        if (letterAttr === 'letter'){
+            if ( letter === btnGuessUpperCase){
+                getLetter[i].classList.add('show');
+                guess = getLetter[i];
+            } 
+        }
+    }
+
+    return guess;
+};
+
+//EVENTS
+startGame.addEventListener('click', (e) => {  
+    startOverlay.style.visibility = 'hidden';
+});
+
+
+qwerty.addEventListener("click", function(e)){
+
+
 }
