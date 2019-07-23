@@ -10,33 +10,36 @@ startGame.addEventListener('click', (e) => {
     startScreen.style.visibility = 'hidden';
 });
 
-//GAME PHRASES
+//GAME PHRASE LIST
 const gamePhrases = [
     'READ BETWEEN THE LINES',
     'HASTE MAKES WASTE',
-    'SOMEONE WOKE UP ON THE WRONG SIDE OF THE BED'
+    'SOMEONE WOKE UP ON THE WRONG SIDE OF THE BED',
+    'CRY ME A RIVER'
 ];
 
+//CHOOSE RANDOM PHRASE
 function getRandomPhraseAsArray(arr){
-    //do stuff to any arr that is passed in
     let pickPhrase = arr[Math.floor(Math.random()*arr.length)];
-    let splitPhrase = pickPhrase.split(' ');
-    
-    // console.log(splitPhrase);
+    let splitPhrase = pickPhrase.split("");
     return splitPhrase;
  } 
+const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 
-// getRandomPhraseAsArray(gamePhrases);
+//APPEND SPLIT RANDOM PHRASE TO SCREEN
+function addPhraseToDisplay(phrase){
+    // do stuff any arr that is passed in, and add to `#phrase ul` 
+    for (let i = 0; i < phrase.length; i++){
+        let li = document.createElement('li');
+        li.textContent = phrase[i];
+        gameDisplay.appendChild(li);   
 
-function addPhraseToDisplay(splitArr){
-    // do stuff any arr that is passed in, and add to `#phrase ul`
-    
-    for (let i = 0; i < splitArr.length; i++){
-        const li = document.createElement('li');
-        
-
-        gameDisplay.appendChild();   
+        if(li.textContent !== ' '){
+            li.className = 'letter';
+        } else {
+            li.className = 'space';
+        }
     }
 }
 
-addPhraseToDisplay();
+addPhraseToDisplay(phraseAsLetters);
