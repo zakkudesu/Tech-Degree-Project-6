@@ -49,7 +49,7 @@ function checkLetter(btnGuess){
     const btnGuessUpperCase = btnGuessLetter.toUpperCase();
 
     for(let i = 0; i < getLetter.length; i++){
-        const letterAttr = (getLetter[i].getAttribute('class'));
+        const letterAttr = getLetter[i].getAttribute('class');
         const letter = getLetter[i].textContent;
         
 
