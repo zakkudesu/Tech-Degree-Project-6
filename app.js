@@ -24,44 +24,35 @@ function getRandomPhraseAsArray(arr){
 
 //APPEND SPLIT RANDOM PHRASE TO SCREEN
 function addPhraseToDisplay(phrase){
-    // do stuff any arr that is passed in, and add to `#phrase ul` 
+    // do stuff to any arr that is passed in, and add to `#phrase ul` 
     for (let i = 0; i < phrase.length; i++){
-        let li = document.createElement('li');
-        li.textContent = phrase[i];
-        ul.appendChild(li);   
+        const letterLI = document.createElement('li');
+        letterLI.textContent = phrase[i];
+        ul.appendChild(letterLI);   
 
-        if(li.textContent !== ' '){
-            li.className = 'letter';
+        if(letterLI.textContent !== " "){
+            letterLI.className = 'letter';
         } else {
-            li.className = 'space';
+            letterLI.className = 'space';
         }
     }
 }
 
 const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 addPhraseToDisplay(phraseAsLetters);
+console.log(phraseAsLetters);
 
-//CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
-function checkLetter(btnGuess){
-    let guess = null
-    const getLetter = ul.children; 
-    const btnGuessLetter = btnGuess.textContent;
-    const btnGuessUpperCase = btnGuessLetter.toUpperCase();
-
-    for(let i = 0; i < getLetter.length; i++){
-        const letterAttr = getLetter[i].getAttribute('class');
-        const letter = getLetter[i].textContent;
-        
-
-        if (letterAttr === 'letter'){
-            if ( letter === btnGuessUpperCase){
-                getLetter[i].classList.add('show');
-                guess = getLetter[i];
-            } 
-        }
+// //CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
+function checkLetter(e){
+    let guessRight = null;
+    const li = document.getElementsByClassName('letter');
+    for (let i = 0; i < li.length; i++){
+        if (e.textContent.toUpperCase() === li[i].textContent.toUpperCase()) {
+            li[i].classList.add('show');
+            guessRight = li[i];
+        } 
     }
-
-    return guess;
+    return guessRight;
 };
 
 //EVENTS
@@ -71,6 +62,14 @@ startGame.addEventListener('click', (e) => {
 
 
 qwerty.addEventListener("click", (e) => {
-    let clicked = e.target;
-    console.log(e.target.textContent)
-});
+    let key = e.target;
+    let keyMatch = checkLetter(key);
+        if(key.tagName == 'BUTTON' ){
+            key.className = 'chosen';
+            key.disabled = true;
+        };
+        if(keyMatch == null){
+            console.log('whoops, guess again');
+        };  
+    }
+);
