@@ -75,12 +75,11 @@ qwerty.addEventListener("click", (e) => {
             const getHeart = document.getElementsByClassName('tries');
 
             for (let i = 0; i < getHeart.length; i++){
-            getHeart[i].style.visibility = 'hidden';
-            }
+            getHeart[i].remove();
 
             misses ++;
             console.log(misses);
         }
 
     }
-);
+});
