@@ -76,10 +76,13 @@ qwerty.addEventListener("click", (e) => {
 
             for (let i = 0; i < getHeart.length; i++){
             getHeart[i].remove();
+            }
 
             misses ++;
             console.log(misses);
-        }
 
-    }
+            if (misses === 5){
+                //game over
+            }
+        }
 });
