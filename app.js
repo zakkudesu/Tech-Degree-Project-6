@@ -43,7 +43,7 @@ const phraseAsLetters = getRandomPhraseAsArray(gamePhrases);
 addPhraseToDisplay(phraseAsLetters);
 console.log(phraseAsLetters);
 
-// //CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
+//CHECKS PLAYER GUESSES FOR MATCHING LETTERS 
 function checkLetter(e){
     let guessRight = null;
     const li = document.getElementsByClassName('letter');
@@ -56,6 +56,18 @@ function checkLetter(e){
     return guessRight;
 };
 
+//CHECKS IF GAME IS WON OR LOST
+function checkWon(){
+    /*run this function to check if the number of letters with 
+    class “show” is equal to the number of letters with 
+    class “letters”. If they’re equal, show the overlay screen 
+    with the “win” class and appropriate text. 
+    Otherwise, if the number of misses is equal to or greater than 5, 
+    show the overlay screen with the “lose” class 
+    and appropriate text. */
+};
+
+
 //EVENTS
 startGame.addEventListener('click', (e) => {  
     startOverlay.style.visibility = 'hidden';
@@ -64,25 +76,17 @@ startGame.addEventListener('click', (e) => {
 
 qwerty.addEventListener("click", (e) => {
     let key = e.target;
-    let keyMatch = checkLetter(key);
+    let letterFound = checkLetter(key);
 
         if(key.tagName == 'BUTTON' ){
             key.className = 'chosen';
             key.disabled = true;
         } 
         
-        if(keyMatch == null) {
-            const getHeart = document.getElementsByClassName('tries');
-
-            for (let i = 0; i < getHeart.length; i++){
-            getHeart[i].remove();
-            }
-
+        if(letterFound === null) {
             misses ++;
-            console.log(misses);
-
-            if (misses === 5){
-                //game over
-            }
+            const getHeart = document.getElementsByClassName('tries');
+            getHeart[0].remove();
         }
+        // checkWon();
 });
