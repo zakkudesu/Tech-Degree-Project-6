@@ -11,7 +11,7 @@ let misses = 0;
 const gamePhrases = [
     'READ BETWEEN THE LINES',
     'HASTE MAKES WASTE',
-    'SOMEONE WOKE UP ON THE WRONG SIDE OF THE BED',
+    'SOMEONE WOKE UP ON THE WRONG SIDE OF THE BED',   
     'CRY ME A RIVER',
     'A DROP IN THE BUCKET'
 ];
@@ -65,8 +65,6 @@ startGame.addEventListener('click', (e) => {
 qwerty.addEventListener("click", (e) => {
     let key = e.target;
     let keyMatch = checkLetter(key);
-    let scoreBoard = document.querySelector('.scoreBoard');
-    let tries = document.getElementsByClassName('tries');
 
         if(key.tagName == 'BUTTON' ){
             key.className = 'chosen';
@@ -74,9 +72,14 @@ qwerty.addEventListener("click", (e) => {
         } 
         
         if(keyMatch == null) {
-            //placeholder for misses to be replaced with removing hearts
+            const getHeart = document.getElementsByClassName('tries');
+
+            for (let i = 0; i < getHeart.length; i++){
+            getHeart[i].style.visibility = 'hidden';
+            }
+
             misses ++;
-            console.log('whoops', misses);
+            console.log(misses);
         }
 
     }
