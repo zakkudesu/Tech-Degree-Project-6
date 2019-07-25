@@ -2,8 +2,10 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const startGame = document.querySelector('.btn__reset');
+const titlePage = document.querySelector('.title');
 const overlay = document.getElementById('overlay'); 
 const ul = document.querySelector('#phrase ul');
+
 let misses = 0;
 
 //GAME PHRASE LIST
@@ -64,23 +66,28 @@ function checkWin(){
     Otherwise, if the number of misses is equal to or greater than 5, 
     show the overlay screen with the “lose” class 
     and appropriate text. */
-    const answerLetters = document.getElementsByClassName('show');
-    const guessletters = document.getElementsByClassName('letter');
+    const answerLetters = document.querySelectorAll('.show');
+    const guessletters = document.querySelectorAll('.letter');
     if ( answerLetters.length === guessletters.length ) {
        
+        overlay.classList = "win";
+        titlePage.innerHTML= "Congrats!";
+        overlay.style.display= "flex";
         
-    };
-    if (misses >= 5){
-        
-
+    } else if (misses >= 5){
+        overlay.classList = 'lose';
+        "titlePage.innerHTML= 'GAME OVER!!!";
+        overlay.style.display= "flex";
     }
-
 };
 
 
 //EVENTS
 startGame.addEventListener('click', (e) => {  
-    overlay.style.visibility = 'hidden';
+    overlay.style.display = 'none';
+    if (overlay.className == 'win' || overlay.className == 'lose'){
+        location.reload(true);
+    }
 });
 
 
