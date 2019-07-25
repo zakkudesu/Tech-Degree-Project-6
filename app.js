@@ -6,8 +6,6 @@ const titlePage = document.querySelector('.title');
 const overlay = document.getElementById('overlay'); 
 const ul = document.querySelector('#phrase ul');
 let misses = 0;
-
-//GAME PHRASE LIST
 const gamePhrases = [
     'READ BETWEEN THE LINES',
     'HASTE MAKES WASTE',
