@@ -2,7 +2,7 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const startGame = document.querySelector('.btn__reset');
-const startOverlay = document.getElementById('overlay'); 
+const overlay = document.getElementById('overlay'); 
 const ul = document.querySelector('#phrase ul');
 let misses = 0;
 
@@ -80,7 +80,7 @@ function checkWin(){
 
 //EVENTS
 startGame.addEventListener('click', (e) => {  
-    startOverlay.style.visibility = 'hidden';
+    overlay.style.visibility = 'hidden';
 });
 
 
