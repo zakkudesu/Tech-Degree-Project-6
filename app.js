@@ -1,7 +1,6 @@
 
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-const missed = 0;
 const startGame = document.querySelector('.btn__reset');
 const startOverlay = document.getElementById('overlay'); 
 const ul = document.querySelector('#phrase ul');
@@ -57,7 +56,7 @@ function checkLetter(e){
 };
 
 //CHECKS IF GAME IS WON OR LOST
-function checkWon(){
+function checkWin(){
     /*run this function to check if the number of letters with 
     class “show” is equal to the number of letters with 
     class “letters”. If they’re equal, show the overlay screen 
@@ -65,6 +64,17 @@ function checkWon(){
     Otherwise, if the number of misses is equal to or greater than 5, 
     show the overlay screen with the “lose” class 
     and appropriate text. */
+    const answerLetters = document.getElementsByClassName('show');
+    const guessletters = document.getElementsByClassName('letter');
+    if ( answerLetters.length === guessletters.length ) {
+       
+        
+    };
+    if (misses >= 5){
+        
+
+    }
+
 };
 
 
@@ -88,5 +98,5 @@ qwerty.addEventListener("click", (e) => {
             const getHeart = document.getElementsByClassName('tries');
             getHeart[0].remove();
         }
-        // checkWon();
+        checkWin();
 });
