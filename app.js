@@ -65,7 +65,7 @@ function checkWin(){
         titlePage.innerHTML= 'Congrats!';
         overlay.style.display= 'flex';   
         startBtn.innerHTML= 'Play Again';
-    } else if (misses >= 5){
+    } else if (misses > 4){
         overlay.classList = 'lose';
         titlePage.innerHTML= 'GAME OVER!!!';
         overlay.style.display= 'flex';
@@ -84,19 +84,19 @@ startBtn.addEventListener('click', (e) => {
 
 
 qwerty.addEventListener("click", (e) => {
-    let key = e.target;
-    let letterFound = checkLetter(key);
-
-        if(key.tagName == 'BUTTON' ){
+        if(e.target.tagName == 'BUTTON' ){
+            let key = e.target;
             key.disabled = true;
-            key.className = 'chosen';
+            key.classList.add('chosen');
+            const letterFound = checkLetter(key);
+            
+            if(letterFound === null) {
+                misses ++;
+                const getHeart = document.getElementsByClassName('tries');
+                getHeart[0].remove();
+            }
         } 
-        
-        if(letterFound === null) {
-            misses ++;
-            const getHeart = document.getElementsByClassName('tries');
-            getHeart[0].remove();
-        }
-
         checkWin();
 });
+
+
