@@ -88,8 +88,8 @@ qwerty.addEventListener("click", (e) => {
             let key = e.target;
             key.disabled = true;
             key.classList.add('chosen');
-            const letterFound = checkLetter(key);
             
+            const letterFound = checkLetter(key);
             if(letterFound === null) {
                 misses ++;
                 const getHeart = document.getElementsByClassName('tries');
